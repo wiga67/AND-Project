@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -20,6 +24,8 @@ public class OfflineModeActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     NavigationView navigationDrawer;
+    NavHostFragment nav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +41,10 @@ public class OfflineModeActivity extends AppCompatActivity {
     private void initViews() {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationDrawer = findViewById(R.id.nav_view);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragmentContainerView);
+        NavController navCo = navHostFragment.getNavController();
+
         navigationDrawer.setNavigationItemSelectedListener(menuItem -> {
             switch(menuItem.getItemId()) {
                 case R.id.nav_home:
@@ -44,6 +54,7 @@ public class OfflineModeActivity extends AppCompatActivity {
                 case R.id.nav_gallery:
                     Log.i("navigation","gallery clicked");
                     drawerLayout.closeDrawer(GravityCompat.START);
+                    navCo.navigate(R.id.action_test2_to_login);
                     return true;
                 case R.id.nav_share:
                     Log.i("navigation","share clicked");

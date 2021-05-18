@@ -11,4 +11,6 @@
     <string name="nav_header_subtitle">Test</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_login_fragment">Hello login fragment</string>
+
 </resources>
