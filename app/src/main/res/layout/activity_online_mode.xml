@@ -39,7 +39,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:navGraph="@navigation/nav_graph" />
+                app:navGraph="@navigation/nav_graph_online" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -49,8 +49,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="false"
-            app:headerLayout="@layout/offline_header"
-            app:menu="@menu/offline_activty_drawer" />
+            app:headerLayout="@layout/online_header"
+            app:menu="@menu/online_activty_drawer" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

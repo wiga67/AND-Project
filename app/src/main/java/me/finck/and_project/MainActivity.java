@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button btnOffline;
+    Button btnOnline;
 
 
     @Override
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnOffline = findViewById(R.id.btn_gooffline);
+        btnOnline = findViewById(R.id.btn_login);
         btnOffline.setOnClickListener(v->
                                             {
                                                 Context context = getApplicationContext();
@@ -23,5 +25,12 @@ public class MainActivity extends AppCompatActivity {
                                                 Intent intent = new Intent(context, destination);
                                                 startActivity(intent);
                                             });
+        btnOnline.setOnClickListener(v->
+        {
+            Context context = getApplicationContext();
+            Class destination = OnlineModeActivity.class;
+            Intent intent = new Intent(context, destination);
+            startActivity(intent);
+        });
     }
 }

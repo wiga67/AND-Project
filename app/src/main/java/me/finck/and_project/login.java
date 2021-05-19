@@ -1,14 +1,20 @@
 package me.finck.and_project;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +25,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class login extends Fragment {
-
+Button btnRelog;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,7 +72,16 @@ public class login extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        View login = inflater.inflate(R.layout.fragment_login, container, false);
+        btnRelog = login.findViewById(R.id.btn_relog);
+        if (user != null)
+            Toast.makeText(getActivity(), "Welcome " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
+        else {
+            btnRelog.setVisibility(View.VISIBLE);
+            createSignInIntent();
+        }
+        return login;
     }
     public void createSignInIntent() {
         // [START auth_fui_create_intent]
