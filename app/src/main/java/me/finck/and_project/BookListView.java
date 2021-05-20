@@ -3,6 +3,8 @@ package me.finck.and_project;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import me.finck.and_project.local_storage.Books;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +26,7 @@ import java.util.ArrayList;
 public class BookListView extends Fragment implements BookAdapter.OnListItemClickListener{
 RecyclerView myBookList;
 BookAdapter myBookAdapter;
+private BookViewModel bookViewModel;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -69,33 +75,21 @@ BookAdapter myBookAdapter;
         myBookList = view.findViewById(R.id.rv);
         myBookList.hasFixedSize();
         myBookList.setLayoutManager(new LinearLayoutManager(getContext()));
+        bookViewModel = new ViewModelProvider(this).get(BookViewModel.class);
         ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
-        books.add(new Book("Lost Stars","Claudia Gray"));
-        books.add(new Book("Dark Nest","Troy Denning"));
+        bookViewModel.getAllBooks().observe(getViewLifecycleOwner(), new Observer<List<Books>>() {
+            @Override
+            public void onChanged(List<Books> dBooks) {
+                    int max = dBooks.size();
+                for (int i=0;i<max;i++)
+                {
+                    String author = dBooks.get(i).getAuthor();
+                    String title = dBooks.get(i).getTitle();
+                    books.add(new Book(author,title));
+
+                }
+            }
+        });
 
         myBookAdapter = new BookAdapter(books,this);
         myBookList.setAdapter(myBookAdapter);

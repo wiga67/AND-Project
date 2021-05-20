@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ANDProject">
         <activity
             android:name=".OfflineModeActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan|stateHidden"
             android:parentActivityName=".MainActivity">
 
         </activity>
