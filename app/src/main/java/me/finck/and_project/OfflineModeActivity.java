@@ -35,7 +35,6 @@ public class OfflineModeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         //Return to Main activity
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initViews();
 
 

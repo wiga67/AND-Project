@@ -18,10 +18,19 @@
         android:id="@+id/add_book"
         android:name="me.finck.and_project.AddBook"
         android:label="fragment_add_book"
-        tools:layout="@layout/fragment_add_book" />
+        tools:layout="@layout/fragment_add_book" >
+        <action
+            android:id="@+id/go_to_list"
+            app:destination="@id/bookListView" />
+    </fragment>
     <fragment
         android:id="@+id/bookListView"
         android:name="me.finck.and_project.BookListView"
         android:label="fragment_book_list_view"
         tools:layout="@layout/fragment_book_list_view" />
+    <fragment
+        android:id="@+id/book_infos"
+        android:name="me.finck.and_project.book_infos"
+        android:label="fragment_book_infos"
+        tools:layout="@layout/fragment_book_infos" />
 </navigation>
