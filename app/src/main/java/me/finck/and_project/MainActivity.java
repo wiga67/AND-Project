@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     Button btnOffline;
     Button btnOnline;
@@ -32,5 +34,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(context, destination);
             startActivity(intent);
         });
+
     }
 }

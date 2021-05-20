@@ -7,7 +7,21 @@
 
     <fragment
         android:id="@+id/test2"
-        android:name="me.finck.and_project.test"
+        android:name="me.finck.and_project.Test"
         android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/go_to_add_book"
+            app:destination="@id/add_book" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_book"
+        android:name="me.finck.and_project.AddBook"
+        android:label="fragment_add_book"
+        tools:layout="@layout/fragment_add_book" />
+    <fragment
+        android:id="@+id/bookListView"
+        android:name="me.finck.and_project.BookListView"
+        android:label="fragment_book_list_view"
+        tools:layout="@layout/fragment_book_list_view" />
 </navigation>

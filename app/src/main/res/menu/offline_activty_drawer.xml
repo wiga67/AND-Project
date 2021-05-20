@@ -6,17 +6,21 @@
             android:icon="@drawable/ic_baseline_add_24"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_addBook"
             android:icon="@drawable/ic_baseline_add_24"
-            android:title="@string/menu_gallery" />
+            android:title="@string/menu_addBook" />
+        <item
+            android:id="@+id/nav_bookList"
+            android:icon="@drawable/ic_baseline_add_24"
+            android:title="@string/menu_bookList" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_goonline"
                 android:icon="@drawable/ic_baseline_add_24"
-                android:title="@string/menu_share" />
+                android:title="@string/menu_goonline" />
         </menu>
     </item>
 </menu>
