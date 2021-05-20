@@ -1,4 +1,9 @@
 # AND-Project
+[Last Commit]
+Due to bad time management, i was only able to implement a little part of the offline part : The user can only add books in a database, 
+and see them in a recycler view. 
+Here is the link to the presentation : https://youtu.be/W77lFf-da-s
+On the online side, the user can just login , but norhing is implemented
 Share your books 
 This app is made for book lovers which wants to manage their bookshelves, lend their books and see them back.
 A normal use case would be to register your own books into a local database which would be filled thanks to a call to the Google Book API.
