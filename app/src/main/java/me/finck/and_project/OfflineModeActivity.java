@@ -9,6 +9,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -51,13 +53,23 @@ public class OfflineModeActivity extends AppCompatActivity {
                     Log.i("navigation","home clicked");
                     drawerLayout.closeDrawer(GravityCompat.START);
                     return true;
-                case R.id.nav_gallery:
+                case R.id.nav_addBook:
                     Log.i("navigation","gallery clicked");
+                    navCo.navigate(R.id.add_book);
                     drawerLayout.closeDrawer(GravityCompat.START);
                     return true;
-                case R.id.nav_share:
+                case R.id.nav_bookList:
+                    Log.i("navigation","gallery clicked");
+                    navCo.navigate(R.id.bookListView);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                case R.id.nav_goonline:
                     Log.i("navigation","share clicked");
                     drawerLayout.closeDrawer(GravityCompat.START);
+                    Context context = getApplicationContext();
+                    Class destination = OnlineModeActivity.class;
+                    Intent intent = new Intent(context, destination);
+                    startActivity(intent);
                     return true;
                 default:
                     return false;

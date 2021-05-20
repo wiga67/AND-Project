@@ -14,5 +14,11 @@
     <string name="hello_login_fragment">Hello login fragment</string>
     <string name="menu_logout">Log out</string>
     <string name="menu_offline">Go offline</string>
+    <string name="menu_goonline">Switch to online mode</string>
+    <string name="menu_addBook">Add a book</string>
+    <string name="addbookwelcome">Add a book</string>
+    <string name="menu_bookList">Book list</string>
+    <string name="booktitle">Book Title</string>
+    <string name="author">Author Name</string>
 
 </resources>
